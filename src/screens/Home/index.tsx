@@ -15,6 +15,9 @@ export function Home() {
   const [participantName, setParticipantName] = useState("");
 
   function handleParticipantAdd() {
+    if (participantName === "") {
+      return Alert.alert("Campo vazio", "Insira algo na caixa de texto");
+    }
     if (participants.includes(participantName)) {
       return Alert.alert(
         "Participante Existe",
@@ -29,7 +32,10 @@ export function Home() {
     Alert.alert("Remover", `Remover o participante ${name}?`, [
       {
         text: "Sim",
-        onPress: () => Alert.alert("Deletado"),
+        onPress: () =>
+          setParticipants((prevState) =>
+            prevState.filter((participant) => participant !== name)
+          ),
       },
       {
         text: "Nao",
