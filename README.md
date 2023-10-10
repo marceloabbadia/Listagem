@@ -12,14 +12,11 @@ Este é um aplicativo desenvolvido em React Native com Expo e TypeScript que per
 - Suporta plataforma iOS/Android.
 
 ## Capturas de Tela
+<img width="405" alt="Captura de Tela 2023-10-10 às 10 17 28" src="https://github.com/marceloabbadia/Listagem/assets/112344339/9f01939c-fa89-4727-8e7e-d11a404a4c1d">
+<img width="405" alt="Captura de Tela 2023-10-10 às 10 17 00" src="https://github.com/marceloabbadia/Listagem/assets/112344339/b5fbbab4-f11f-44f0-8736-7890f6bf4499">
+<img width="405" alt="Captura de Tela 2023-10-10 às 10 16 51" src="https://github.com/marceloabbadia/Listagem/assets/112344339/7dcfc837-c31c-4c43-b7bd-e2e052308a45">
+<img width="405" alt="Captura de Tela 2023-10-10 às 10 15 44" src="https://github.com/marceloabbadia/Listagem/assets/112344339/ca643616-cdd3-4b98-ace5-bb041f659248">
 
-<img width="405" alt="Captura de Tela 2023-10-10 às 10 17 28" src="https://github.com/marceloabbadia/Listagem/assets/112344339/1c673e08-aabb-4a2f-925a-f84016f84c0f">
-
-<img width="405" alt="Captura de Tela 2023-10-10 às 10 17 00" src="https://github.com/marceloabbadia/Listagem/assets/112344339/4b60eaf9-fc34-49a8-9f7b-abd5900b340b">
-
-<img width="405" alt="Captura de Tela 2023-10-10 às 10 16 51" src="https://github.com/marceloabbadia/Listagem/assets/112344339/3b07899b-3ff9-43f0-ad79-e44c8e693736">
-
-<img width="405" alt="Captura de Tela 2023-10-10 às 10 15 44" src="https://github.com/marceloabbadia/Listagem/assets/112344339/ab8ce1f3-68b8-472d-9dcb-fc76b5aa70f0">
 
 ## Como Usar
 
