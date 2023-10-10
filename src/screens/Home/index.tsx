@@ -6,35 +6,48 @@ import {
   TouchableOpacity,
   FlatList,
   Alert,
+  Image,
 } from "react-native";
 import { styles } from "./styles";
-import { Participant } from "../../components/Participant";
+import { ItemLista } from "../../components/ItemLista";
+import ImageLogo from "../../assets/logo.png";
+import { ButtonZap } from "../../components/ButtonZap";
 
 export function Home() {
-  const [participants, setParticipants] = useState<string[]>([]);
-  const [participantName, setParticipantName] = useState("");
+  const [itensLista, setItensLista] = useState<string[]>([]);
+  const [itemNome, setItemNome] = useState("");
+  const dataAtual = new Date();
+
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: "short",
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  };
+
+  const dataFormatada = dataAtual.toLocaleDateString("pt-BR", options);
 
   function handleParticipantAdd() {
-    if (participantName === "") {
+    if (itemNome === "") {
       return Alert.alert("Campo vazio", "Insira algo na caixa de texto");
     }
-    if (participants.includes(participantName)) {
+    if (itensLista.includes(itemNome)) {
       return Alert.alert(
-        "Participante Existe",
-        "Já existe um participante na lista com esse nome"
+        "Item Existente",
+        "Já existe esse item na lista com esse nome"
       );
     }
-    setParticipants((prevState) => [...prevState, participantName]);
-    setParticipantName("");
+    setItensLista((prevState) => [...prevState, itemNome]);
+    setItemNome("");
   }
 
-  function handleParticipantRemove(name: string) {
-    Alert.alert("Remover", `Remover o participante ${name}?`, [
+  function handleItemRemove(name: string) {
+    Alert.alert("Remover", `Remover o item ${name}?`, [
       {
         text: "Sim",
         onPress: () =>
-          setParticipants((prevState) =>
-            prevState.filter((participant) => participant !== name)
+          setItensLista((prevState) =>
+            prevState.filter((list) => list !== name)
           ),
       },
       {
@@ -46,36 +59,38 @@ export function Home() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.texto1}>Nome do Evento</Text>
-      <Text style={styles.texto2}>sexta, 01 de dezmebro, 2023;</Text>
+      <Text style={styles.texto1}>Faz a Lista, hein!</Text>
+      <Image source={ImageLogo} style={styles.logo} />
+
+      <Text style={styles.texto2}>{dataFormatada}</Text>
       <View style={styles.form}>
         <TextInput
-          style={styles.input}
-          placeholder="Nome do participante"
-          placeholderTextColor={"#6b6b6b"}
-          onChangeText={setParticipantName}
-          value={participantName}
+          style={styles.input1}
+          placeholder="Digite seu item na lista"
+          placeholderTextColor={"#ababab"}
+          onChangeText={setItemNome}
+          value={itemNome}
         />
         <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
-
+      <ButtonZap shareList={itensLista} />
       <FlatList
-        data={participants}
+        data={itensLista}
         keyExtractor={(item) => item}
         renderItem={({ item }) => (
-          <Participant
+          <ItemLista
             key={item}
             name={item}
-            onRemove={() => handleParticipantRemove(item)}
+            onRemove={() => handleItemRemove(item)}
           />
         )}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
           <Text style={styles.listEmptyText}>
-            Ninguem chegou no evento ainda? Adicione a sua lista de
-            participantes.
+            Não incluiu nada na lista ainda? Adicione algo na sua lista e evite
+            esquecer algo, sua esposa está de olho em você! :)
           </Text>
         )}
       />
